@@ -1,0 +1,142 @@
+
+
+		Java Programming Language
+		|	|		|
+		name	|		communicate
+		  set of instructions		|	
+						|
+			-------------------------------
+			|	|	  |	 |
+			listen	speaking reading writing
+			|	  |	  |	   |	
+			2 ears   1 mouth  2 eyes  hand
+			<----- concepts-> <---programs-->
+				theory	    practicals
+
+		knowledge --> applied -> wisdom
+
+
+	infosys	wipro  tcs  microsoft  ibm  google
+
+	cg amazon oracle amdocs  nomura ltimindtree lntinfotech
+
+	mindgate payu ...
+
+		cheap intelectual labour
+
+		INR  vs USD
+		90+     1 
+
+
+		US company		India
+		|			|
+		---------	-------------
+		|	|	|	|
+	us citizen    NRI	travel reside
+				to US  in india
+		1	2	3	4
+
+
+
+				Java
+				|
+		---------------------------------
+		|		|		|
+		JSE		JEE		JME
+		|		|		|
+		Standard	Enterprise	Micro
+		|		|		|
+		Desktop		Intenet		Mobile
+		|		|
+		we are here	7 features
+		|
+		
+
+whatsapp | FB | IG | YT <-- reels <-- 30 seconds <--distraction
+
+1. remote capability
+2. high availability
+3. multithreading
+4. pooling of resources
+5. caching of resources
+6. transaction management
+7. security management
+
+
+
+
+
+To write a simple java program, 
+the rules are below.
+
+1. write a simple text file named as .java extension
+2. each java program always has a class
+3. a class may not be public / or may be public 
+4. if the class is public, then the filename and class name
+   must match
+
+5. it may have main() method or / may not have
+6. if it has main() method then it will run
+
+1. Joker.java
+-----------
+2. public class Circus 
+{
+	5. public static void main(String args[]) {
+		System.out.prinlnt("Circus started...");
+	}
+
+}
+
+
+
+
+DATA TYPES
+----------
+
+			data types
+			 |
+		-------------------------
+		|			|
+		primitive		secondary
+		|				|
+----------------------------------	--------------
+|	 |	   |     	|	    |
+Integral Floating Character Boolean	  Object
+|	 |	   |		 |	     |
+byte  1  float  4  char 2	boolean 1   String
+short 2  double 8				"Mysore"
+int   4						"New York"
+long  8
+
+	byte  -3 -2 -1 0 1 2 3....
+	      <----- 256 bits---->
+				
+	byte rollNumber=150
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
