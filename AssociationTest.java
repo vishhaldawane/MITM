@@ -27,6 +27,14 @@ public class AssociationTest {
 				Photographer('M',38,"Haresh",20000,"Mumbai");
 		System.out.println("photographer : "+photographer);
 		photographer.cam.showCamera();
+		
+		LightEffect effect = new LightEffect("Raining");
+		
+		Scene scene= new Scene("Valentine Day");
+	
+		Photo photo = photographer.click(scene,effect);
+		System.out.println("Photo "+photo);
+		
 	}
 }
 class Person { 
@@ -81,8 +89,9 @@ class Camera {
 
 class Photographer extends Person //isA
 {
-	int numberOfPhotosClicked;
-	String address;
+	int numberOfPhotosClicked; //hasA
+	String address; //hasA
+	Camera cam = new Camera(5,"Nikon"); //hasA
 	
 	public Photographer(char gender, int age, String name, int numberOfPhotosClicked, String address) {
 		super(gender, age, name);
@@ -90,11 +99,11 @@ class Photographer extends Person //isA
 		this.address = address;
 	}
 
-	Camera cam = new Camera(5,"Nikon"); //hasA
-	
 		//producesA		usesA		usesA
 			Photo click(Scene sc, LightEffect lf) {
-			   return null;	
+				Photo photo = new Photo(300,200,true, LocalDateTime.now(),sc.content+" at College Garden in "+lf.effectType);
+				
+			   return photo;	
 			}
 
 			@Override
