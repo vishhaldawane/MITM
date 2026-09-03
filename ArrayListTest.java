@@ -1,5 +1,6 @@
 import java.util.ArrayList;//this line will avail that class
 import java.util.LinkedList;
+import java.util.TreeSet;
 import java.util.HashSet;
 import java.util.Iterator;
 
@@ -30,7 +31,9 @@ public class ArrayListTest {
 		
 		//lets use HashSet now
 		
-		HashSet  playList = new HashSet();
+		//HashSet  playList = new HashSet();
+		
+		TreeSet playList = new TreeSet();
 		
 		//output is same, but the Data Structure is changed
 		
@@ -64,8 +67,7 @@ public class ArrayListTest {
 			System.out.println("Song : "+song);
 		}
 		
-		
-		//grab this code from git
+	
 		
 	}
 }
@@ -77,12 +79,19 @@ public class ArrayListTest {
 //2. TreeSet and 
 //3. HashSet class 
 //PRACTICE NOW
-class Song
+class Song implements Comparable<Song>
 {
 	String title;
 	String artist;
 	String album;
 	int year;
+	
+	@Override
+	public int compareTo(Song o) {
+		System.out.println("Comparing "+o.year+ " with "+year);
+		return Integer.compare(o.year, year);
+	}
+	
 	public Song(String title, String artist, String album, int year) {
 		super();
 		this.title = title;
