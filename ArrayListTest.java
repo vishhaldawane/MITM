@@ -1,4 +1,8 @@
 import java.util.ArrayList;//this line will avail that class
+import java.util.LinkedList;
+import java.util.HashSet;
+import java.util.Iterator;
+
 //java.util is a package from where it is available
 
 public class ArrayListTest {
@@ -18,7 +22,17 @@ public class ArrayListTest {
 		
 		//BELOW IS THE CONTAINER THAT WILL HOLD THE CONTENT
 		//1. container is created
-		ArrayList playList = new ArrayList();
+		//ArrayList playList = new ArrayList();
+		
+		//add this line at the top->import java.util.LinkedList;
+
+		//LinkedList  playList = new LinkedList();
+		
+		//lets use HashSet now
+		
+		HashSet  playList = new HashSet();
+		
+		//output is same, but the Data Structure is changed
 		
 		//2. now add each song in the container...
 		playList.add(song1); //ADDING CONTENT IN THE CONTAINER
@@ -34,13 +48,35 @@ public class ArrayListTest {
 		//BELOW WE ARE TRYING TO SHOW THE CONTENT 
 		//FROM THE CONTAINER
 		
+		/*
 		for(int i=0; i<playList.size(); i++) {
 			System.out.println("song is : "+playList.get(i));
+		}*/
+		
+		//WE CANNOT USE GET METHOD FOR HashSet
+		//Use Iterator now
+		
+		//import java.util.Iterator;
+		Iterator iterator = playList.iterator();
+		while(iterator.hasNext())
+		{
+			Song song = (Song) iterator.next();
+			System.out.println("Song : "+song);
 		}
+		
+		
 		//grab this code from git
 		
 	}
 }
+//LOOK AT THIS NEW EXPLAINATION
+
+//ONCE YOU PRACTICE THIS EXAMPLE, THEN TRY TO ADD THE 
+//SAME OBJECTS IN THE 
+//1. LinkedList class
+//2. TreeSet and 
+//3. HashSet class 
+//PRACTICE NOW
 class Song
 {
 	String title;
@@ -61,3 +97,23 @@ class Song
 	
 	
 }
+//wow hemant, use chatgpt to know other classes
+//i liked it
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
