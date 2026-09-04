@@ -2,19 +2,52 @@
 public class UserDefinedException {
 	public static void main(String[] args) {
 		Car car = new Car();
-		car.startCar();
-		car.longDrive();
+		
+		
+		
+		try
+		{
+			car.startCar();
+			car.longDrive();
+		}	
+		catch(SpeedLimitException e) {
+			System.out.println(e.getMessage());
+		}
+		catch(TyrePuncturedException e) {
+			System.out.println(e.getMessage());			
+		}
+		catch(SpeedBrakerException e) {
+			System.out.println(e.getMessage());
+		}
+		catch (Exception e) {
+			System.out.println("Car key is missing...");
+		}
+		System.out.println("Journey is over.. main is over..");
 	}
 }
 class Car
 {
+	boolean keyFound; //by default false
+	
 	Car() {
 		System.out.println("1. Car is created");
-		
+		double value = Math.random()%10;
+		if(value >0.65) {
+			keyFound = true; 
+		}
+			
 	}
 	
-	void startCar() {
-		System.out.println("2. Car started...");
+	//what is the difference between throw and throws
+	
+	void startCar() throws Exception//mandatory line for checked
+	{								//exceptions
+		if(keyFound) {
+			System.out.println("2. Car started...");
+		}
+		else {//Unhandled exception type Exception
+			throw new Exception("Car key is missing....");
+		}
 		
 	}
 	
