@@ -3,23 +3,23 @@ public class UserDefinedException {
 	public static void main(String[] args) {
 		Car car = new Car();
 		
-		
+		////try catch is mandatory for checked category
 		
 		try
 		{
 			car.startCar();
 			car.longDrive();
 		}	
-		catch(SpeedLimitException e) {
+		catch(SpeedLimitException e) { //unchecked category
 			System.out.println(e.getMessage());
 		}
-		catch(TyrePuncturedException e) {
+		catch(TyrePuncturedException e) {//unchecked category
 			System.out.println(e.getMessage());			
 		}
-		catch(SpeedBrakerException e) {
+		catch(SpeedBrakerException e) {//unchecked category
 			System.out.println(e.getMessage());
 		}
-		catch (Exception e) {
+		catch (CarKeyMissingException e) {//checked category
 			System.out.println("Car key is missing...");
 		}
 		System.out.println("Journey is over.. main is over..");
@@ -40,13 +40,13 @@ class Car
 	
 	//what is the difference between throw and throws
 	
-	void startCar() throws Exception//mandatory line for checked
+	void startCar() throws CarKeyMissingException//mandatory line for checked
 	{								//exceptions
 		if(keyFound) {
 			System.out.println("2. Car started...");
 		}
 		else {//Unhandled exception type Exception
-			throw new Exception("Car key is missing....");
+			throw new CarKeyMissingException("Car key is missing....");
 		}
 		
 	}
@@ -105,6 +105,13 @@ class SpeedBrakerException extends RuntimeException //isA
 	}
 }
 
+//checked category
+class CarKeyMissingException extends Exception //isA
+{
+	CarKeyMissingException(String msg) {
+		super(msg);
+	}
+}
 
 
 
