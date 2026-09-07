@@ -34,13 +34,25 @@ public class StreamTest {
 		//as if a pipeline		// as if a Water tank
 		Stream<Song> myStream = Stream.of(songArray);
 		
-		//convert the pipeline into the arraylist
-		List<Song> playList = 
+		myStream.forEach(  
+				
+					(mySong) -> {
+						System.out.println("Song : "+mySong);
+					}
+				
+		);
+		
+		
+		
+		//convert the pipeline(stream) into the arraylist
+		/*List<Song> playList = 
 				myStream.collect(Collectors.toList());
 		
 		for(Song theSong : playList) {
 			System.out.println("Song : "+theSong);
-		}
+		}*/
+		
+		
 		
 	/*	ArrayList<Song> playList = new ArrayList<Song>();
 		playList.add(song1);
