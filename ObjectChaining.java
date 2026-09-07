@@ -16,7 +16,16 @@ public class ObjectChaining {
 		Ghee ghee = butter.boil();
 		
 		ghee.wow();*/
-		Ghee ghee = new Cow().milkACow(25).coagulate().churning().boil();
+//		Ghee ghee = new Cow().milkACow(25).coagulate().churning().boil();
+		
+		Cow cow = new Cow();
+		Milk milk = cow.milkACow(25);
+		Curd curd = milk.coagulate();
+		
+		Sugar sugar = new Sugar(3);
+		Ice iceCubes = new Ice(5);
+		
+		Lassi lassi = curd.makeLassi(sugar, iceCubes);
 		
 	}
 }
@@ -48,6 +57,52 @@ class Curd
 		Butter butter = new Butter();
 		return butter;
 	}
+	
+	Lassi makeLassi(Sugar sugar, Ice ice)
+	{
+		System.out.println("Creating Lassi.....");
+		Lassi lassi = new Lassi(sugar.getQuantity(), ice.getCubeCount());
+		return lassi;
+	}
+}
+class Lassi {
+	Lassi(int sugarQty, int iceCubeCount) {
+		System.out.println("Creating lassi with "+sugarQty+ " and "+iceCubeCount+" ice cubes");
+	}
+}
+class Sugar{
+	int quantity;
+
+	public Sugar(int quantity) {
+		super();
+		this.quantity = quantity;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	
+}
+class Ice {
+	int cubeCount;
+
+	public Ice(int cubeCount) {
+		super();
+		this.cubeCount = cubeCount;
+	}
+
+	public int getCubeCount() {
+		return cubeCount;
+	}
+
+	public void setCubeCount(int cubeCount) {
+		this.cubeCount = cubeCount;
+	}
+	
 }
 
 class Butter
