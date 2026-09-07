@@ -9,8 +9,8 @@ public class StreamTest {
 	public static void main(String[] args) {
 	
 		//content
-		Song song1 = new Song("Dil Se Re","AR Rehman","Dil Se", 2001);
-		Song song2 = new Song("Vande Mataram","AR Rehman","Maa Tujhe Salaam", 2000);
+		Song song1 = new Song("Dil Se Re","AR Rehman","Dil Se", 1998);
+		Song song2 = new Song("Vande Mataram","AR Rehman","Maa Tujhe Salaam", 2003);
 		Song song3 = new Song("I want it that way","Martin L","Backstreet Boys", 2005);
 		Song song4 = new Song("Ab Mujhe Raat Din","Sonu Nigam","Deewana", 2004);
 		Song song5 = new Song("Chaiya Chaiya","Sukhwinder Singh","Dil Se", 2003);
@@ -42,7 +42,27 @@ public class StreamTest {
 				
 		);
 		
+		List<Song> songList = 
+				Stream.of(songArray)
+				.collect(Collectors.toList());
 		
+		
+		
+		long rows = songList.stream().count();
+		System.out.println("SONGS COUNT "+rows);
+		//	List<Employee> empList = empStream.collect(Collectors.toList());
+
+			
+		System.out.println("-----------");
+		
+		//intermediate list of emp's having empno>100 with ename start with J
+		List<Song> revisedSongList = 
+				Stream.of(songArray).
+				filter(s->s.year>2000 && s.artist.startsWith("AR")).
+				collect(Collectors.toList());
+		
+		revisedSongList.forEach(s->System.out.println(s));
+
 		
 		//convert the pipeline(stream) into the arraylist
 		/*List<Song> playList = 
