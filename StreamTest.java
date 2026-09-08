@@ -9,11 +9,11 @@ public class StreamTest {
 	public static void main(String[] args) {
 	
 		//content
-		Song song1 = new Song("Dil Se Re","AR Rehman","Dil Se", 1998);
-		Song song2 = new Song("Vande Mataram","AR Rehman","Maa Tujhe Salaam", 2003);
-		Song song3 = new Song("I want it that way","Martin L","Backstreet Boys", 2005);
-		Song song4 = new Song("Ab Mujhe Raat Din","Sonu Nigam","Deewana", 2004);
-		Song song5 = new Song("Chaiya Chaiya","Sukhwinder Singh","Dil Se", 2003);
+		Song song1 = new Song("Dil Se Re","AR Rehman","Dil Se", 1998,500000);
+		Song song2 = new Song("Vande Mataram","AR Rehman","Maa Tujhe Salaam", 2003,450000);
+		Song song3 = new Song("I want it that way","Martin L","Backstreet Boys", 2005,780000);
+		Song song4 = new Song("Ab Mujhe Raat Din","Sonu Nigam","Deewana", 2004,350000);
+		Song song5 = new Song("Chaiya Chaiya","Sukhwinder Singh","Dil Se", 2003,550000);
 	
 		//array as a container
 		Song songArray[] = new Song [ 5 ];
@@ -58,11 +58,17 @@ public class StreamTest {
 		//intermediate list of emp's having empno>100 with ename start with J
 		List<Song> revisedSongList = 
 				Stream.of(songArray).
-				filter(s->s.year>2000 && s.artist.startsWith("AR")).
+				filter(s->s.year>2003 ). // && s.artist.startsWith("AR")).
 				collect(Collectors.toList());
 		
 		revisedSongList.forEach(s->System.out.println(s));
-
+		
+//SELECT SUM(COSTOFTHEALBUM) FROM SONG WHERE YEAR > 2000
+		
+		double cost = Stream.of(songArray).
+				filter(s->s.year>2000).
+				map(s->s.costOfTheAlbum).
+				reduce(0.0,Double::sum); 
 		
 		//convert the pipeline(stream) into the arraylist
 		/*List<Song> playList = 
