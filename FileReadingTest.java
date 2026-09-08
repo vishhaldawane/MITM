@@ -5,10 +5,80 @@ import java.io.IOException;
 
 import javax.swing.JFrame;
 
+class MyFileReader 
+{
+	FileInputStream fin;
+	
+	
+	MyFileReader(String filename) {
+		try {
+			fin = new FileInputStream(filename);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	void readData() {
+		try
+		{
+			byte b = (byte) fin.read(); //read the first letter from the file
+			
+			while(b != -1 ) { //-1 means to check the EOF
+				System.out.print((char)b); //show the letter on the screen
+				b = (byte) fin.read(); //read successive characters
+				Thread.sleep(5); //slow motion
+			}
+			System.out.println("----------");
+		}
+		catch(FileNotFoundException e) {
+			System.out.println("File does not exists : "+e);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	void closeFile() {
+		try {
+			fin.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+}
+
+//CricketTest.java	Joker.java
+//DataTypes.java		Studio.java
+
+
 public class FileReadingTest {
 	//Unhandled exception type FileNotFoundException
 	public static void main(String[] args) {
-		try
+		
+		MyFileReader reader1 = new MyFileReader("/Users/admin/MITM/file1.txt");
+		MyFileReader reader2 = new MyFileReader("/Users/admin/MITM/file2.txt");
+		MyFileReader reader3 = new MyFileReader("/Users/admin/MITM/file3.txt");
+		MyFileReader reader4 = new MyFileReader("/Users/admin/MITM/file4.txt");
+		MyFileReader reader5 = new MyFileReader("/Users/admin/MITM/file5.txt");
+		
+	
+		reader1.readData();
+		reader2.readData();
+		reader3.readData();
+		reader4.readData();
+		reader5.readData();
+		
+		reader1.closeFile();
+		reader2.closeFile();
+		reader3.closeFile();
+		reader4.closeFile();
+		reader5.closeFile();
+		
+	/*try
 		{
 			System.out.println("Trying to open the file...");
 			// C:\yourfolder path here
@@ -37,7 +107,7 @@ public class FileReadingTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		*/
 		
 		
 	/*	Frame f1 = new Frame();
