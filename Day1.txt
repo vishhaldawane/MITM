@@ -1,3 +1,32 @@
+Advanced Java 
+1. Object-Oriented Programming (OOP) 
+ Classes & Objects  
+ Constructors  
+ Inheritance  
+ Polymorphism  
+ Encapsulation & Abstraction  
+ Interfaces  
+
+2. Collections Framework 
+ List, Set & Map  
+ ArrayList & LinkedList  
+ HashSet & TreeSet  
+ HashMap & TreeMap  
+ Iterator & Comparator  
+
+3. Multithreading 
+ Thread Creation & Life Cycle  
+ Thread Synchronization  
+ Thread Safety  
+ Inter-Thread Communication  
+ Executor Framework & Thread Pools  
+
+4. Streams & File Handling 
+ Stream API Fundamentals  
+ filter(), map() & reduce()  
+ File & Directory Handling  
+ Reading & Writing Files  
+ Exception Handling
 
 
 		Java Programming Language
@@ -109,11 +138,143 @@ short 2  double 8				"Mysore"
 int   4						"New York"
 long  8
 
-	byte  -3 -2 -1 0 1 2 3....
+	byte  -128 -3 -2 -1 0 1 2 3...127
 	      <----- 256 bits---->
 				
 	byte rollNumber=150
 
+POPS
+-----
+	Procedure oriented programming language
+
+
+OOPS concepts
+---------------
+	"Object" Oriented Programming Concept
+	
+
+
+	What is an object?
+
+haircut =   length + startCutting
+
+Surgeon = length + width + depth + cutting(), stitching()
+class ATM
+{
+	void withdraw() <-- function used by a user
+	{
+	    <---	coding done by the ATM engineer
+	}
+}
+
+OOPS concepts
+----------------
+1. Abstraction
+	hiding the complexity of the object
+	
+2. Encapsulation
+	writing the complexity of the object
+
+3. Polymorphism
+	ability of an entity to appear many times
+	
+	class Tiger
+	{
+		a. function overloading
+
+		void jump() { } <-- 10 feet long
+
+		void jump(int height, int length)
+		
+		void jump(int height, int length, float timing)
+	
+		void jump(float timing)
+	}
+
+	b. function overriding
+
+	class Doctor
+	{
+		void diagnose() { }
+	}
+	class Surgeon extends Doctor
+	{
+		void diagnose() { }
+	}
+	class HeartSurgeon extends Surgeon
+	{
+		void diagnose() { }
+	}
+
+4. Inheritance
+
+	ability of an entity to acquire properties from
+	existing entities
+
+
+		BankAccount <-- generalization
+		    |acno,name,balance + withdraw/deposit
+	---------------------------------
+	|		|		|
+  SavingsAccount   CurrentAccount   CreditAccount <--specialization
+	|rate		|overDraft	|creditLimit,cashLimit
+	|
+  FixedDepositAccount <-- specialization of specialization
+	|maturityTerm
+
+
+
+
+		Person
+		|gender,age,name
+	--------------
+	|
+	Student
+	| + rollNumber, Stream
+	----------
+	|
+	Employee
+	| + empno, desg, salary	
+
+
+		Point2D
+		| x,y
+	--------------
+	|
+	Point3D
+	|z
+	|
+	ColouredPoint3D
+	|color
+
+
+		Animal
+		|eat(),sleep(),breathing(),walk()
+		|
+	-----------------------------------------
+	|		|		|	|
+	Mammal		Reptile		Fish	Bird
+	|giveBirth()	|crawl()	|swim()	|
+	|		---------	------	-----
+	Human		|	|	|	|
+	|think()	Snake Crocodile Shark	Parrot
+	|
+	Person
+	|voting()
+	|
+	-----------------
+	|		|
+	Girl		Boy
+	|talking()	|quite()
+	|		|
+	Woman		Man
+	|nurturing()	|running()
+	|		|
+	Daughter-In-Law Son-In-Law
+	|servingHome()	|earningForHome()
+	|		|
+	Mother-In-Law	Father-In-Law
+	|scolding()	|readingNewsPaper()
 
 
 
@@ -139,4 +300,375 @@ long  8
 
 
 
+	
+5. Object communication
+
+	one object invoking function of another object
+	and so on...
+
+
+	class Joker
+	{
+		void jumping()
+		{
+
+		}
+	}
+
+	class Audience
+	{
+		void clapping()
+		{
+
+		}
+	}
+
+
+
+
+
+
+
+a. we dont know of that which we dont know
+b. we know      of that which we dont know
+c. we dont know of that which we      know
+d. we      know of that which we      know
+
+
+
+
+
+
+
+
+
+
+
+
+
+Abstract classes and Interfaces
+-------------------------------
+
+	abstract = incomplete
+
+abstract class InDoorGame <--- to consider a symmetry
+{
+	abstract void calculateScore(); //declaration is HERE
+}
+
+class Chess extends InDoorGame
+{
+	void moveKing() { }
+	void calculateScore() {
+		define the coding here.... [implementation is HERE]
+	}
+}
+class Carrom extends InDoorGame
+{
+	void strike() { }
+	void calculateScore() {
+		define the coding here.... [implementation is HERE]
+	}
+}
+class TableTennis extends InDoorGame
+{
+	void hit() { }
+	void calculateScore() {
+		define the coding here.... [implementation]
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+		Mammal
+		  |giveBirth(); <-- code body is missing
+		  |eat() { } <-- code body is here| 3. inherited
+	-------------------------		to the child
+	|	|	|	|
+	Human	Bat	Dog	Whale	
+	think()	hang()	sniff()	swimInDeepOcean() <-1.exclusive
+	giveBirth -> everywhere.............<-- 2. implemented
+						[mandatory]
+	
+	eat()		eat()	   <--- 4. inherited-cum-overriding			
+	
+a. single level
+	Point2D
+	|
+	Point3D
+
+b. multi level
+	Point2D
+	|
+	Point3D
+	|
+	ColouredPoint3D
+
+c. multiple level
+
+	[class]	[interface]
+	Mammal	Swimming
+	|	   |
+	------------
+	extends	|implements
+		Whale
+
+
+
+	Mammal	Swimming	Flying
+	|give..	|swim..		|fly..
+	-------------------------
+			|
+			Human
+			| think
+
+
+
+			Object
+			  | wait/notify
+		------------------------
+		|			|
+		Thread			Thread
+		|  start()		|  start()
+		|			|
+		Producer		Consumer
+		|			|
+		produce()		consume()
+
+
+
+
+
+
+
+		Association
+			|
+	---------------------------------
+	|	|		|	|
+	isA	hasA	     usesA  producesA
+
+class Heart
+{
+}
+class Human
+{
+   Heart heart = new Heart();//hasA
+}
+class Person extends Human //isA
+{
+	Feeling  reading(Novel novel, Story story) 
+	{
+
+	}
+}
+	
+class Engine
+{
+}
+class Vehicle
+{
+}
+class Car extends Vehicle //isA
+{
+	Engine eng = new Engine(); //hasA
+
+	//producesA	usesA		usesA
+	Travel drive(GPSLocation loc, Road r)
+	{
+	}
+
+}
+
+
+
+class Person
+{
+}
+class Camera
+{
+}
+class Photographer extends Person //isA
+{
+	Camera cam = new Camera(); //hasA
+
+	//producesA	usesA	usesA		usesA
+	Photo click(Scene s, LightEffect lf, Umbrella u)
+	{
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+	You cannot decide your future
+	But you can decide your HABITS.
+
+	and your HABITs will decide your FUTURE
+
+			- Stephen Covey
+
+	Book ->	7 habits of highly effective people
+
+	
+	1. Be proactive 
+	2. Begin with the end in mind
+	3. Put First thing First 
+	 ( personal victory )
+	|
+	4. Think Win-Win
+	|
+	5. Seek first to understand then to be understood
+	6. Synergy
+	7. Sharpen the SAW
+	( public victory
+
+		observe this screen and learn this topic
+		this is the best way, so that u can
+		focus on the content
+
+	COLLECTION FRAMEWORK
+	----------------------
+
+			ARRAY is used to hold the data
+
+			but the limitation of array is 
+			- its size
+			- its fixed data type
+
+			we want a new data structure 
+			that will hold data 
+			of growing size
+			and of different/variety of data type
+
+		hence we need collection framework,
+
+
+		there are 4 containers used here to hold the
+		data
+				Collection
+				    |
+			+-----------------------+
+			|			|
+			List			Set
+			|			|
+		+---------------+	    +-------------+
+		|		|	    |		  |
+	ArrayList	LinkedList	TreeSet		HashSet
+		
+	    Song	    Contact     ChemicalElement  Book
+	     |
+	Song is the best	
+	suited class 
+	for holding in
+        ArrayList
+
+
+
+
+	will hold
+d	data of growing size
+	and of variety of data types 
+		
+
+	
+
+
+
+
+		Exception
+
+
+		Runtime error occured during the 
+		program execution 
+
+
+			Object
+			  |
+			Throwable
+			  |
+		---------------------
+		|		|
+		Exception	Error
+		|checked
+	--------------------------
+	|		|	|
+RuntimeException   IOException SQLException
+	|unchecked
+   ------------------------------------------------
+   |			|			  |
+NullPointerException  IndexOutOfBoundsException ArithmeticException
+				|
+		---------------------------------
+		|				|
+   ArrayIndexOutOfBoundsException  StringIndexOutOfBoundsException
+
+
+Exceptions are of TWO types
+		1. checked exception
+			any child class ( except RuntimeException)
+			of Exception class is known as checked
+
+		2. unchecked exception 
+			any child of RuntimeException
+			is known as unchecked
+
+
+			long drive to Ooty via a Car
+			---------------------------
+		some problems		some problems
+		you can			you cannot anticipate
+		anticipate		, they will come at driving
+		|			|
+		checked			unchecked
+		|			|
+		FuelException		EngineFailureException
+		EngineOilException	# SpeedBrakerException
+		CoolantException	LandSlidingException	
+		TyreException		TrafficJamInValleyException
+		DocumentException	EarthQuakeException
+		BrakePadsException	HeavyRainException
+					NoBookingInHotelException
+	      #	CarKeyMissingException	# TyrePunctureException
+					# SpeedLimitException
+					OvertakeException
+					LaneException
+					
 
