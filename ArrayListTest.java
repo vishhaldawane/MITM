@@ -9,11 +9,11 @@ import java.util.Iterator;
 public class ArrayListTest {
 	public static void main(String[] args) {
 		// LOOK AT THE 5 OBJECTS BELOW - THAT IS THE CONTENT
-		Song song1 = new Song("Dil Se Re","AR Rehman","Dil Se", 2001);
-		Song song2 = new Song("Vande Mataram","AR Rehman","Maa Tujhe Salaam", 2000);
-		Song song3 = new Song("I want it that way","Martin L","Backstreet Boys", 2005);
-		Song song4 = new Song("Ab Mujhe Raat Din","Sonu Nigam","Deewana", 2004);
-		Song song5 = new Song("Chaiya Chaiya","Sukhwinder Singh","Dil Se", 2003);
+		Song song1 = new Song("Dil Se Re","AR Rehman","Dil Se", 1998,500000);
+		Song song2 = new Song("Vande Mataram","AR Rehman","Maa Tujhe Salaam", 2003,450000);
+		Song song3 = new Song("I want it that way","Martin L","Backstreet Boys", 2005,780000);
+		Song song4 = new Song("Ab Mujhe Raat Din","Sonu Nigam","Deewana", 2004,350000);
+		Song song5 = new Song("Chaiya Chaiya","Sukhwinder Singh","Dil Se", 2003,550000);
 		//ALL THE COMMENTS ARE THE EXPLAINATIONS
 		
 		
@@ -85,6 +85,7 @@ class Song implements Comparable<Song>
 	String artist;
 	String album;
 	int year;
+	double costOfTheAlbum;
 	
 	@Override
 	public int compareTo(Song o) {
@@ -92,16 +93,17 @@ class Song implements Comparable<Song>
 		return Integer.compare(o.year, year);
 	}
 	
-	public Song(String title, String artist, String album, int year) {
+	public Song(String title, String artist, String album, int year, double cost) {
 		super();
 		this.title = title;
 		this.artist = artist;
 		this.album = album;
 		this.year = year;
+		this.costOfTheAlbum = cost;
 	}
 	@Override
 	public String toString() {
-		return "Song [title=" + title + ", artist=" + artist + ", album=" + album + ", year=" + year + "]";
+		return "Song [title=" + title + ", artist=" + artist + ", album=" + album + ", year=" + year + ", cost"+costOfTheAlbum+"]";
 	}
 	
 	
